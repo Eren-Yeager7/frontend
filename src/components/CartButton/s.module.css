@@ -1,0 +1,46 @@
+.cart {
+    all: unset;
+    display: flex;
+    padding: .75rem;
+    cursor: pointer;
+    position: relative;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    transition: background-color 150ms ease, scale 150ms ease;
+}
+
+.cartCount {
+    position: absolute;
+
+    top: -.15rem;
+    right: -.15rem;
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    border: .2rem solid transparent;
+
+    font-size: .9rem;
+    font-weight: bold;
+    border-radius: 50%;
+    color: var(--textSecondary);
+    background-color: var(--red);
+}
+
+.cart:hover svg {
+    fill: var(--theme);
+}
+
+.cart:active {
+    scale: .9;
+}
+
+.cart svg {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--textPrimary);
+    transition: fill 150ms ease;
+}

@@ -1,0 +1,442 @@
+.backdrop {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    z-index: 1000;
+    position: fixed;
+    align-items: center;
+    justify-content: flex-end;
+    backdrop-filter: blur(1px);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cartContainer {
+    width: 30rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--bgPrimary);
+    border-left: .15rem solid var(--bgSecondary);
+    box-shadow: -10px 0 15px rgba(10, 10, 10, 0.3);
+    border-radius: var(--standardRadius) 0 0 var(--standardRadius);
+}
+
+.cartContainer .heading {
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: .15rem solid var(--bgSecondary);
+}
+
+.cartContainer .heading .actions {
+    gap: .5rem;
+    display: flex;
+    align-items: center;
+}
+
+.cartContainer .heading .actions .close {
+    all: unset;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: transform 250ms ease;
+}
+
+.cartContainer .heading .actions .close svg {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--textPrimary);
+    transition: fill 250ms ease;
+}
+
+.cartContainer .heading .close:hover {
+    transform: rotate(90deg);
+}
+
+.cartContainer .heading .close:hover svg {
+    fill: var(--red);
+}
+
+.cartContainer .heading .actions .clear {
+    all: unset;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: transform 250ms ease;
+}
+
+.cartContainer .heading .actions .clear svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: var(--textPrimary);
+    transition: fill 250ms ease;
+}
+
+.cartContainer .heading .clear:not(:disabled):hover svg {
+    fill: var(--red);
+}
+
+.cartContainer .heading .clear:disabled {
+    opacity: .5;
+    cursor: default;
+}
+
+.cartBody {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.emptyCart {
+    gap: 1rem;
+    height: 100%;
+    display: flex;
+    font-size: 5rem;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.emptyCart svg {
+    width: 5rem;
+    height: 5rem;
+    fill: var(--textPrimary);
+}
+
+.cartContent {
+    gap: 1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cartContent .cartItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cartContent .cartItem .overview {
+    gap: 1rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartContent .cartItem .overview .image {
+    display: flex;
+    padding: .25rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--standardRadius);
+    transition: background-color 250ms ease;
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.cartContent .cartItem .overview .image img {
+    width: 3.75rem;
+    height: 3.75rem;
+    user-select: none;
+    -webkit-user-drag: none;
+    mix-blend-mode: multiply;
+}
+
+.cartContent .cartItem:hover .overview .image {
+    background-color: #FFFFFF;
+}
+
+.cartItem .overview .info {
+    height: 100%;
+    width: 100%;
+    gap: .25rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.cartItem .overview .description {
+    color: var(--textSecondary);
+    opacity: .5;
+}
+
+.cartItem .priceQuantity {
+    gap: .5rem;
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.cartTotal {
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    align-self: flex-end;
+    flex-direction: column;
+}
+
+.cartTotal.disabled {
+    opacity: .25;
+}
+
+.cartTotal .row {
+    font-size: 1.5rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: .15rem solid var(--bgSecondary);
+}
+
+.cartTotal .checkout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.cartTotal .checkout button {
+    all: unset;
+    gap: .5rem;
+    width: 100%;
+    display: flex;
+    padding: .75rem;
+    cursor: pointer;
+    margin-top: .5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+    transition: scale 250ms ease;
+    background-color: var(--theme);
+    border-radius: calc(var(--standardRadius) * 2);
+}
+
+.cartTotal .checkout button:disabled {
+    cursor: default;
+}
+
+.cartTotal .checkout button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--textPrimary);
+}
+
+.cartTotal .checkout button:not(:disabled):active {
+    scale: .95;
+}
+
+.cartTotal .row .label {
+    color: var(--textSecondary);
+    font-size: .99rem;
+}
+
+.cartTotal .total .label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--green);
+}
+
+.cartTotal .total .value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--green);
+}
+
+@media ((max-width: 1200px)) {
+    .cartContainer {
+        width: 100%;
+    }
+}
+
+.modal {
+    gap: 1.5rem;
+    width: 35%;
+    height: auto;
+    display: flex;
+    padding: 1.5rem;
+    max-height: 80%;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--bgPrimary);
+    border-radius: var(--standardRadius);
+    border: .15rem solid var(--bgSecondary);
+}
+
+.modal .heading {
+    gap: .5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.modal .body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.modal .body .costumerDetails {
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+}
+
+.modal .body .costumerDetails .inputGroup {
+    gap: .5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal .body .costumerDetails .inputGroup input {
+    all: unset;
+    width: 100%;
+    padding: .5rem;
+    box-sizing: border-box;
+    color: var(--textSecondary);
+    border-radius: var(--standardRadius);
+    border: .15rem solid var(--bgSecondary);
+    transition: border 250ms ease;
+}
+
+.modal .body .costumerDetails .inputGroup input:focus {
+    border: .15rem solid var(--theme);
+}
+
+.modal .body .costumerDetails .inputGroup input::placeholder {
+    opacity: .25;
+    color: var(--textSecondary);
+}
+
+.modal .body .costumerDetails .inputGroup input:disabled {
+    opacity: .75;
+    cursor: not-allowed;
+}
+
+.modal .bottom {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.modal .bottom .actions {
+    gap: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal .bottom .actions button {
+    all: unset;
+    gap: .25rem;
+    display: flex;
+    cursor: pointer;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    transition: scale 250ms ease;
+    background-color: var(--theme);
+    padding: var(--standardPadding);
+    border-radius: var(--standardRadius);
+}
+
+.modal .bottom .actions button:active {
+    scale: .95;
+}
+
+.modal .bottom .actions button:disabled {
+    cursor: default;
+    opacity: .5;
+}
+
+.modal .bottom .actions button svg {
+    width: 1rem;
+    height: 1rem;
+    fill: var(--textPrimary);
+}
+
+@media (max-width: 1000px) {
+    .modal {
+        width: 90%;
+        height: 90%;
+        flex-direction: column;
+        border-radius: calc(var(--borderRadius) * 2);
+    }
+}
+
+.modalHeading {
+    gap: .5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    width: 100%;
+    border-bottom: .15rem solid var(--bgSecondary);
+}
+
+.modalHeading .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: rgba(34, 197, 94, .25);
+}
+
+.modalHeading .icon svg {
+    width: 3rem;
+    height: 3rem;
+    fill: var(--green);
+}
+
+.modalBody {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.infoItem {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.amount {
+    border-top: .15rem solid var(--bgSecondary);
+    padding-top: 1rem;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.infoItem .label {
+    opacity: .8;
+    color: var(--textSecondary);
+}

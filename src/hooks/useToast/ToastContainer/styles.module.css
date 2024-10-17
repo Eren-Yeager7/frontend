@@ -1,0 +1,104 @@
+.toastArea {
+    --toastHeight: 3.5rem;
+    gap: .25rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: .25rem;
+    z-index: 999999;
+    position: fixed;
+    align-items: center;
+    pointer-events: none;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.toast {
+    gap: .5rem;
+    z-index: 999;
+    display: flex;
+    padding: .5rem;
+    font-weight: bold;
+    pointer-events: all;
+    align-items: center;
+    pointer-events: none;
+    border-radius: .75rem;
+    justify-content: center;
+    background-color: var(--bgPrimary);
+    border: .15rem solid var(--bgSecondary);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+}
+
+.icon svg {
+    width: calc(var(--toastHeight) * .45);
+    height: calc(var(--toastHeight) * .45);
+}
+
+.content {
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    justify-content: center;
+    color: var(--textSecondary);
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    font-weight: bold;
+    color: var(--textSecondary);
+}
+
+.message {
+    display: inline;
+    justify-content: center;
+}
+
+.successIcon svg {
+    fill: var(--green);
+}
+
+.errorIcon svg {
+    fill: var(--red);
+}
+
+.successColor {
+    fill: var(--green);
+}
+
+.warnColor {
+    fill: var(--red);
+}
+
+.message::-webkit-scrollbar {
+    width: .25rem;
+}
+
+.message::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.message::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.message:hover::-webkit-scrollbar {
+    width: .25rem;
+}
+
+.message:hover::-webkit-scrollbar-thumb {
+    background-color: var(--theme);
+}
+
+.message:hover::-webkit-scrollbar-track {
+    background-color: transparent;
+}
